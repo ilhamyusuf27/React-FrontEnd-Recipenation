@@ -42,7 +42,7 @@ function LoginForm() {
 			<Form className="size-form" onSubmit={handleLogin}>
 				<InputText label="Email" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
 				<InputText label="Password" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-				<Form.Check type="checkbox" label="I agree to terms & conditions" className="mb-4" />
+				{/* <Form.Check type="checkbox" label="I agree to terms & conditions" className="mb-4" /> */}
 				<div className="d-grid gap-2">
 					<Button variant="warning" type="submit" size="lg" className="p-3 btn-color mb-2" disabled={isLoading}>
 						{isLoading ? "Loading..." : "Log In"}

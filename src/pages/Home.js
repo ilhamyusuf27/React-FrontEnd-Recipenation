@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
-import NavbarHeader from '../components/organism/NavbarHeader';
-import SectionTilte from '../components/atoms/SectionTitle';
-import Footer from '../components/organism/Footer';
-import CardPopularRecipe from '../components/mollecule/CardPopularRecipe';
-import PaginationItem from '../components/mollecule/PaginationItem';
+import React, { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
+import NavbarHeader from "../components/organism/NavbarHeader";
+import SectionTilte from "../components/atoms/SectionTitle";
+import Footer from "../components/organism/Footer";
+import CardPopularRecipe from "../components/mollecule/CardPopularRecipe";
+import PaginationItem from "../components/mollecule/PaginationItem";
 
-import NewRecipeContent from '../components/mollecule/NewRecipeContent';
+import NewRecipeContent from "../components/mollecule/NewRecipeContent";
 
-import BannerHome from '../components/organism/BannerHome';
+import BannerHome from "../components/organism/BannerHome";
 
-import axios from '../axios/axios';
+import axios from "../axios/axios";
 
 function Home() {
 	const [item, setItems] = useState([]);
@@ -19,7 +19,7 @@ function Home() {
 
 	useEffect(() => {
 		const getRecipe = async () => {
-			await axios.get('recipe/trending').then((res) => {
+			await axios.get("recipe/trending").then((res) => {
 				setItems(res.data.result);
 			});
 		};
@@ -35,16 +35,16 @@ function Home() {
 
 	return (
 		<>
-			<div className='bg-color '>
+			<div className="bg-color ">
 				<Container>
 					<NavbarHeader />
 					<BannerHome />
-					<div className='mt-5 content-container'>
-						<SectionTilte title='New Recipe' />
+					<div className="mt-5 content-container">
+						<SectionTilte title="New Recipe" />
 						<NewRecipeContent item={item} />
 					</div>
-					<div className='popular-container'>
-						<SectionTilte title='Popular Recipe' />
+					<div className="popular-container">
+						<SectionTilte title="Popular Recipe" />
 						<CardPopularRecipe item={currentItem} />
 					</div>
 					<PaginationItem itemPerPage={itemPerPage} totalItem={item.length} paginate={paginate} currentPage={currentPage} />
