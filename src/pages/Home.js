@@ -10,7 +10,7 @@ import NewRecipeContent from '../components/mollecule/NewRecipeContent';
 
 import BannerHome from '../components/organism/BannerHome';
 
-import axios from 'axios';
+import axios from '../axios/axios';
 
 function Home() {
 	const [item, setItems] = useState([]);
@@ -18,12 +18,8 @@ function Home() {
 	const [itemPerPage] = useState(6);
 
 	useEffect(() => {
-		// setTimeout(() => {
-		// 	window.location.reload(false);
-		// }, 100);
-
 		const getRecipe = async () => {
-			await axios.get('http://localhost:8000/recipe/trending').then((res) => {
+			await axios.get('recipe/trending').then((res) => {
 				setItems(res.data.result);
 			});
 		};

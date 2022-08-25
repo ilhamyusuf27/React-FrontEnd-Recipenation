@@ -12,7 +12,7 @@ function CardMyRecipes({ data }) {
 								<Col xl={3}>
 									<a href={`/recipe/${e.recipe_id}`}>
 										<Card className='bg-dark text-white item-size mb-4'>
-											<Card.Img crossOrigin='anonymous' src={'http://localhost:8000/images/recipes/' + e.recipe_images.substring(15, e.recipe_images.length)} className='card-image' />
+											<Card.Img crossOrigin='anonymous' src={e.recipe_images} className='card-image' />
 											<Card.ImgOverlay className='d-flex align-items-end'>
 												<Card.Title>{e.title}</Card.Title>
 											</Card.ImgOverlay>

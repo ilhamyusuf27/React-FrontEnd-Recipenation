@@ -237,7 +237,7 @@ text-align: center;
 }
 
 .popular-container{
-  height: 1000px;
+  height: 100%;
 }
 
 .input-image[type='file']{
@@ -325,5 +325,13 @@ text-align: center;
 }
 
 .item-container{
-  height: 420px;
+  height: 100%;
+}
+
+.navbar{
+  padding: 0 !important;
+}
+
+.border-table{
+  border: 1px solid #dee2e6 !important;
 }

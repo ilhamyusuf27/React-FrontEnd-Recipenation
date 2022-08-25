@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import NavbarHeader from '../components/organism/NavbarHeader';
 import Footer from '../components/organism/Footer';
 
@@ -13,6 +14,7 @@ function AddRecipe() {
 	const [recipeImage, setRecipeImage] = useState(null);
 	const [nameImage, setNameImage] = useState('');
 	const [linkVideo, setLinkVideo] = useState('');
+	const [isLoading, setIsLoading] = useState(false);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -23,6 +25,7 @@ function AddRecipe() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		setIsLoading(true);
 		const { user_id } = JSON.parse(localStorage.getItem('data'));
 		const formData = new FormData();
 		formData.append('user_id', user_id);
@@ -30,16 +33,21 @@ function AddRecipe() {
 		formData.append('ingredients', ingredients);
 		formData.append('recipe_images', recipeImage);
 		formData.append('video_link', linkVideo);
+		// console.log(formData.getAll(title));
 
 		axios
-			.post('http://localhost:8000/recipes/add', formData, {
+			.post('https://recipenation-app.herokuapp.com/recipes/add', formData, {
 				headers: {
 					'content-type': 'multipart/form-data',
 				},
 			})
-			.then(() => {
-				console.log('Berhasil diupload');
-				navigate('/');
+			.then((res) => {
+				setIsLoading(false);
+				Swal.fire({
+					icon: 'success',
+					title: 'Succseed',
+					text: res?.data,
+				}).then((result) => (result.isConfirmed ? navigate('/') : null));
 			})
 			.catch((err) => console.log(err));
 	};
@@ -76,7 +84,7 @@ function AddRecipe() {
 						<Form.Control type='text' placeholder='Video' className='input-size input-grey mb-3' value={linkVideo} onChange={(e) => setLinkVideo(e.target.value)} />
 						<div className='text-center mt-5 button-submit-recipe'>
 							<Button variant='warning' size='lg' className='button-submit-recipe-width' onClick={handleSubmit}>
-								Post
+								{isLoading ? 'Loading...' : 'Post'}
 							</Button>
 						</div>
 					</Form>

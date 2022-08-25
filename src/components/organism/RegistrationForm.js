@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import InputText from '../atoms/InputText';
-import axios from 'axios';
+import axios from '../../axios/axios';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function RegistrationForm() {
 	const [name, setName] = useState('');
@@ -20,18 +21,21 @@ function RegistrationForm() {
 		e.preventDefault();
 		setIsLoading(true);
 		axios
-			.post('http://localhost:8000/registration', {
+			.post('registration', {
 				name,
 				email,
 				phone_number,
 				password,
 				rePassword,
 			})
-			.then(() => {
-				navigate('/login');
+			.then((res) => {
+				Swal.fire({
+					icon: 'success',
+					title: 'Succseed',
+					text: res?.data?.message,
+				}).then((res) => (res.isConfirmed ? navigate('/login') : null));
 			})
 			.catch((err) => {
-				// console.log(err);
 				setIsLoading(false);
 				setIsError(true);
 				setErrMsg(err?.response?.data);

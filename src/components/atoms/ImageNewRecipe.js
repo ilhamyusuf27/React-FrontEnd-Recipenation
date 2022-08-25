@@ -4,7 +4,7 @@ function ImageNewRecipe({ item }) {
 	return (
 		<>
 			<div className='new-recipe-img-container'>
-				<img src={'http://localhost:8000/images/recipes/' + item[0]?.recipe_images?.substring(15, item[0].recipe_images.length)} className='image-new-recipe' alt='ini gambar' />
+				<img src={item[0]?.recipe_images} className='image-new-recipe' alt='ini gambar' />
 			</div>
 		</>
 	);
