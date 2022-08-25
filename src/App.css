@@ -394,6 +394,9 @@ text-align: center;
   .content-container{
     margin-top: 1rem !important;
   }
+  #image-banner{
+    display: none;
+  }
 }
 @media only screen and (max-width: 900px) {
 

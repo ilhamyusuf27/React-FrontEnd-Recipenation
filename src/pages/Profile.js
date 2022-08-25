@@ -49,7 +49,6 @@ function Profile() {
 		const formData = new FormData();
 		formData.append("user_id", user_id);
 		formData.append("photo_profil", e.target.files[0]);
-		console.log(user_id);
 	};
 
 	return (

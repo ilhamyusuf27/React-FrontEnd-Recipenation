@@ -7,7 +7,6 @@ import { Context } from "../../context/context";
 function NavbarHeader() {
 	const context = useContext(Context);
 	const navigate = useNavigate();
-	console.log(context);
 
 	const handleLogOut = () => {
 		localStorage.clear();

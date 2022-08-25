@@ -14,9 +14,7 @@ function Search() {
 	const [msg, setMsg] = useState("");
 	useEffect(() => {
 		axios
-			.post("recipes/find", {
-				title: getKeyword,
-			})
+			.get(`recipes/find/${getKeyword}`)
 			.then((res) => setItem(res?.data))
 			.catch((err) => {
 				setIsError(true);
@@ -33,7 +31,7 @@ function Search() {
 						<h1 className="text-center">{msg}</h1>
 					) : (
 						<Row xs={1} md={2} lg={3} className="g-4">
-							{item.map((item) => (
+							{item?.map((item) => (
 								<CardItemSearch item={item} />
 							))}
 						</Row>
