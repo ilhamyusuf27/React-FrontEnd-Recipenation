@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { Container, Button, Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import NavbarHeader from "../components/organism/NavbarHeader";
 import Footer from "../components/organism/Footer";
 import { useParams } from "react-router-dom";
@@ -7,13 +8,11 @@ import axios from "../axios/axios";
 
 import HeaderDetailRecipe from "../components/mollecule/HeaderDetailRecipes";
 import DetailRecipeContent from "../components/organism/DetailRecipeContent";
-import CommentSection from "../components/organism/CommentSection";
 
 function DetailRecipe() {
 	const params = useParams();
 
 	const [recipe, setRecipe] = useState([]);
-	const [comment, setComment] = useState("");
 	useEffect(() => {
 		axios
 			.post("recipe/recipe-id", {
@@ -23,14 +22,14 @@ function DetailRecipe() {
 			.catch((error) => console.log(error));
 	}, []);
 
-	const handleSend = (e) => {
-		e.preventDefault();
-		axios
-			.post(`recipe/${params.id}/comment`, {
-				content: comment,
-			})
-			.catch((error) => console.log(error));
-	};
+	// const handleSend = (e) => {
+	// 	e.preventDefault();
+	// 	axios
+	// 		.post(`recipe/${params.id}/comment`, {
+	// 			content: comment,
+	// 		})
+	// 		.catch((error) => console.log(error));
+	// };
 
 	console.log("test");
 	return (
