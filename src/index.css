@@ -142,6 +142,8 @@ code {
   
 }
 
+
+
 @media only screen and (max-width: 426px) {
   #bg-side{
     display: none;
@@ -184,3 +186,15 @@ code {
     margin-bottom: 1rem;
   }
 }
+
+
+@media only screen and (max-width: 375px){
+  #bg-sid{
+    display: flex;
+  }
+  .text-container{
+    margin-top: 9rem;
+  }
+}
+
+

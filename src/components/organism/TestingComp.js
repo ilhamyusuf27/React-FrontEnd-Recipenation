@@ -6,7 +6,6 @@ import { Context } from '../../context/context';
 
 function TestingComp({ title }) {
 	const context = useContext(Context);
-	console.log(context.item[0]);
 	return (
 		<>
 			<Row>

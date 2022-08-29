@@ -519,8 +519,53 @@ text-align: center;
     margin-top: 2rem;
   }
   .card-size{
-    width: 290px !important;
+    width: 100% !important;
     height: 290px !important;
+    margin-bottom: 1rem;
+  }
+}
+
+@media only screen and (max-width: 376px) {
+  #bg-side{
+    display: none;
+  }
+
+  .title-lp{
+    font-size: 2.5rem;
+  }
+
+  .text-container{
+    height: 300px;
+    margin-top: 70px;
+  }
+
+  #image-banner{
+    display: none;
+  }
+  .image-new-recipe{
+    width: 250px;
+    height: 250px;
+    left: 10%;
+  }
+  .new-recipe-img-container::before{
+    height: 340px;
+  }
+  #new-recipe-content{
+    margin-top: .5rem;
+  }
+  #new-recipe-detail{
+    margin-top: 12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title-container{
+    margin-top: 4rem;
+  }
+  .card-size{
+    width: 100% !important;
+    height: 215px !important;
     margin-bottom: 1rem;
   }
 }

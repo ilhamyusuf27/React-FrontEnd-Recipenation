@@ -12,7 +12,6 @@ function LoginForm() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isError, setIsError] = useState(false);
 	const [errMsg, setErrMsg] = useState("");
-	console.log();
 	const handleLogin = (e) => {
 		e.preventDefault();
 		setIsLoading(true);
