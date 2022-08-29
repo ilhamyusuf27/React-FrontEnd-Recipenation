@@ -84,7 +84,7 @@ function AddRecipe() {
 						<Form.Control as="textarea" rows={5} placeholder="Ingredients" className="input-size input-grey mb-3" value={ingredients} onChange={(e) => setIngredients(e.target.value)} />
 						{/* <Form.Control type='text' placeholder='Video' className='input-size input-grey mb-3' value={linkVideo} onChange={(e) => setLinkVideo(e.target.value)} /> */}
 						<div className="text-center mt-5 button-submit-recipe">
-							<Button variant="warning" size="lg" className="button-submit-recipe-width" onClick={handleSubmit}>
+							<Button variant="warning" size="lg" className="button-submit-recipe-width" onClick={handleSubmit} disabled={isLoading}>
 								{isLoading ? "Loading..." : "Post"}
 							</Button>
 						</div>
