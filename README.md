@@ -146,7 +146,7 @@ REACT_APP_BASE_URL = https://recipenation-app.herokuapp.com/
     <td>Add Recipe</td>
   </tr>
   <tr>
-    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661404174/porto/Recipenation/profile_pinzfh.png" width=100%></td>
+    <td><image src="https://res.cloudinary.com/dbi5h4hdg/image/upload/v1661831394/porto/Recipenation/screenshot_vyrorb.png" width=100%></td>
   </tr>
   <tr>
     <td>Profile</td>
